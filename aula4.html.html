@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyVibe | Galeria de Artistas</title>
+    
+    <style>
+        /* ==================== ESTILIZAÇÃO CSS ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1a0b2e; /* Fundo roxo escuro profundo */
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem 5%;
+        }
+
+        /* CABEÇALHO */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #e1bee7;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(191, 85, 236, 0.4);
+        }
+
+        header p {
+            color: #b3a2c7;
+            font-size: 1.1rem;
+        }
+
+        /* GRID DE ARTISTAS */
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* CARTÃO DO ARTISTA */
+        .artist-card {
+            background-color: #0d0518; /* Roxo quase preto */
+            border: 2px solid #3d1d6d;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-5px);
+            border-color: #bf55ec; /* Borda roxo neon */
+            box-shadow: 0 8px 30px rgba(191, 85, 236, 0.25);
+        }
+
+        /* CÍRCULO DA FOTO DO ARTISTA */
+        .artist-avatar {
+            width: 120px;
+            height: 120px;
+            background-color: #130722;
+            border: 3px solid #4d1c8c;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .artist-card:hover .artist-avatar {
+            border-color: #bf55ec;
+        }
+
+        /* Caso use uma imagem real depois */
+        .artist-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artist-info h3 {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 0.3rem;
+        }
+
+        .artist-info .genre {
+            font-size: 0.85rem;
+            color: #bf55ec;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .artist-info .stats {
+            font-size: 0.85rem;
+            color: #b3a2c7;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        /* BOTÃO PERFIL */
+        .profile-btn {
+            background-color: transparent;
+            color: #e1bee7;
+            border: 2px solid #3d1d6d;
+            text-decoration: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .profile-btn:hover {
+            background-color: #bf55ec;
+            border-color: #bf55ec;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(191, 85, 236, 0.4);
+        }
+
+        /* RODAPÉ */
+        footer {
+            text-align: center;
+            margin-top: 5rem;
+            color: #5c437a;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>👨‍🎤 Coleção de Artistas</h1>
+        <p>Sua galeria pessoal de bandas, cantores e produtores favoritos.</p>
+    </header>
+
+    <!-- ÁREA DOS CARDS -->
+    <main class="artists-grid">
+
+        <!-- ARTISTA 1 -->
+        <div class="artist-card">
+            <div>
+                <div class="artist-avatar">
+                    <!-- Coloque o emoji ou substitua por uma tag <img src="link-da-foto.jpg"> -->
+                    🎸
+                </div>
+                <div class="artist-info">
+                    <span class="genre">Rock / Metal</span>
+                    <h3>Rock</h3>
+                    <span class="stats"></span>
+                </div>
+            </div>
+            <a href="#" target="_blank" class="profile-btn">Ver Perfil</a>
+        </div>
+
+        <!-- ARTISTA 2 -->
+        <div class="artist-card">
+            <div>
+                <div class="artist-avatar">
+                    🎤
+                </div>
+                <div class="artist-info">
+                    <span class="genre">Hip Hop / Trap</span>
+                    <h3>Hip Hop</h3>
+                    <span class="stats"></span>
+                </div>
+            </div>
+            <a href="#" target="_blank" class="profile-btn">Ver Perfil</a>
+        </div>
+
+        <!-- ARTISTA 3 -->
+        <div class="artist-card">
+            <div>
+                <div class="artist-avatar">
+                    🎹
+                </div>
+                <div class="artist-info">
+                    <span class="genre">Synthwave / Lo-Fi</span>
+                    <h3>Synthwave</h3>
+                    <span class="stats"></span>
+                </div>
+            </div>
+            <a href="#" target="_blank" class="profile-btn">Ver Perfil</a>
+        </div>
+
+        <!-- ARTISTA 4 -->
+        <div class="artist-card">
+            <div>
+                <div class="artist-avatar">
+                    🎧
+                </div>
+                <div class="artist-info">
+                    <span class="genre">Pop / Eletrônica</span>
+                    <h3>Eletrico</h3>
+                    <span class="stats"></span>
+                </div>
+            </div>
+            <a href="#" target="_blank" class="profile-btn">Ver Perfil</a>
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 MyVibe. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

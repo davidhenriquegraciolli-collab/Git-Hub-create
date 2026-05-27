@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyVibe | Minhas Playlists</title>
+    
+    <style>
+        /* ==================== ESTILIZAÇÃO CSS ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1a0b2e; /* Fundo roxo escuro profundo */
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem 5%;
+        }
+
+        /* CABEÇALHO DA PÁGINA */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #e1bee7;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(191, 85, 236, 0.4);
+        }
+
+        header p {
+            color: #b3a2c7;
+            font-size: 1.1rem;
+        }
+
+        /* GRID DE PLAYLISTS */
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* CARTÃO DA PLAYLIST */
+        .playlist-card {
+            background-color: #0d0518; /* Roxo quase preto */
+            border: 2px solid #3d1d6d;
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-5px);
+            border-color: #bf55ec; /* Roxo neon no hover */
+            box-shadow: 0 8px 30px rgba(191, 85, 236, 0.2);
+        }
+
+        .card-info h3 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 0.2rem;
+        }
+
+        .card-info span {
+            font-size: 0.9rem;
+            color: #b3a2c7;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* ESPAÇO PARA O PLAYER DE ÁUDIO (IFRAME) */
+        .embed-container {
+            background-color: #130722;
+            width: 100%;
+            height: 350px; /* Altura padrão para exibir lista de faixas */
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #4d1c8c;
+            overflow: hidden;
+        }
+
+        .placeholder-text {
+            color: #5c437a;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* BOTÃO DE AÇÃO */
+        .playlist-btn {
+            background: linear-gradient(135deg, #4d1c8c 0%, #bf55ec 100%);
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background 0.2s, box-shadow 0.2s;
+            display: block;
+        }
+
+        .playlist-btn:hover {
+            box-shadow: 0 0 15px rgba(191, 85, 236, 0.6);
+        }
+
+        /* RODAPÉ */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: #5c437a;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>🎵 Minhas Playlists</h1>
+        <p>Acesse e gerencie suas coleções musicais favoritas em um só lugar.</p>
+    </header>
+
+    <!-- ÁREA PRINCIPAL -->
+    <main class="playlist-grid">
+
+        <!-- PLAYLIST 1 -->
+        <div class="playlist-card">
+            <div class="card-info">
+                <h3>☕ Deep Focus</h3>
+                <span>Sua seleção para concentração total</span>
+                <div class="embed-container">
+                    <!-- Substitua o <p> abaixo pelo código iframe do Spotify/YouTube -->
+                    <p class="placeholder-text">Cole o código do player aqui</p>
+                </div>
+            </div>
+            <a href="#" target="_blank" class="playlist-btn">Abrir no App</a>
+        </div>
+
+        <!-- PLAYLIST 2 -->
+        <div class="playlist-card">
+            <div class="card-info">
+                <h3>⚡ Beast Mode</h3>
+                <span>Músicas pesadas para o treino</span>
+                <div class="embed-container">
+                    <!-- Substitua o <p> abaixo pelo código iframe do Spotify/YouTube -->
+                    <p class="placeholder-text">Cole o código do player aqui</p>
+                </div>
+            </div>
+            <a href="#" target="_blank" class="playlist-btn">Abrir no App</a>
+        </div>
+
+        <!-- PLAYLIST 3 -->
+        <div class="playlist-card">
+            <div class="card-info">
+                <h3>🌙 Chill Vibes</h3>
+                <span>Para desacelerar e relaxar</span>
+                <div class="embed-container">
+                    <!-- Substitua o <p> abaixo pelo código iframe do Spotify/YouTube -->
+                    <p class="placeholder-text">Cole o código do player aqui</p>
+                </div>
+            </div>
+            <a href="#" target="_blank" class="playlist-btn">Abrir no App</a>
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 MyVibe. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
