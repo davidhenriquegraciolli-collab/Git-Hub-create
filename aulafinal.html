@@ -3,149 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato - Meu Site</title>
-    
-    <!-- O CSS fica junto aqui dentro da tag style -->
+    <title>Contato - Feedback</title>
+
     <style>
-        /* Configurações Gerais do Site */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
+            background-color: #000;
+            color: white;
             padding: 20px;
         }
 
         main {
-            max-width: 600px;
-            margin: 20px auto;
-            background: #fff;
+            max-width: 500px;
+            margin: auto;
+            background: #121212;
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #4a4a4a;
-            margin-top: 0;
-            text-align: center;
-        }
-
-        /* Estilo do Menu de Navegação (Igual para todas as páginas) */
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            border-radius: 5px;
-        }
-
-        nav ul li {
-            margin: 0;
-        }
-
-        nav ul li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav ul li a:hover {
-            background-color: #555;
-            border-radius: 5px;
-        }
-
-        /* Estilo do Formulário */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px; /* Espaço entre os campos */
+            border-radius: 12px;
         }
 
         label {
             font-weight: bold;
-            color: #555;
-            margin-bottom: 5px;
             display: block;
+            margin-top: 15px;
         }
 
-        input[type="text"],
-        input[type="email"],
-        textarea {
+        input, textarea, select {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        input:focus, textarea:focus {
-            border-color: #007BFF;
-            outline: none;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: white;
-            padding: 12px;
+            margin-top: 5px;
+            border-radius: 6px;
             border: none;
-            border-radius: 4px;
+            background: #242424;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        .estrelas {
+            display: flex;
+            gap: 8px;
+            font-size: 32px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background 0.3s;
+            user-select: none;
             margin-top: 10px;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        .estrelas span {
+            color: #444;
+            transition: 0.2s;
+        }
+
+        .estrelas span.ativo {
+            color: gold;
+            transform: scale(1.1);
+        }
+
+        .estrelas span:hover {
+            transform: scale(1.2);
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 30px;
+            background: #A855F7;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Esconde todas as seções condicionais por padrão */
+        #porqueRuim, #perguntaAnuncio, #perguntaUsoDiario {
+            display: none;
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Menu de Navegação para as 5 páginas -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="servicos.html">Serviços</a></li>
-            <li><a href="portfolio.html">Portfólio</a></li>
-            <li><a href="contato.html">Contato</a></li>
-        </ul>
-    </nav>
+<main>
+    <h1>Feedback</h1>
 
-    <!-- Área do Formulário -->
-    <main>
-        <h1>Fale Conosco</h1>
+    <form id="feedbackForm">
+
+        <label>Nome</label>
+        <input type="text" required>
+
+        <label>Idade</label>
+        <input type="number" min="1" required placeholder="Digite sua idade">
+
+        <!-- PERGUNTAS SOBRE MÚSICA (FIXAS) -->
+        <label>Você gosta de ouvir músicas?</label>
+        <select id="gostaMusica" required>
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+
+        <label>Com qual frequência você escuta músicas?</label>
+        <select id="frequenciaMusica" required>
+            <option value="">Selecione</option>
+            <option value="sempre">O dia todo / Sempre que posso</option>
+            <option value="diariamente">Diariamente</option>
+            <option value="asvezes">Às vezes na semana</option>
+            <option value="raramente">Raramente</option>
+        </select>
+
+        <!-- PERGUNTA PRINCIPAL DE AVALIAÇÃO -->
+        <label>Como você avalia esse aplicativo?</label>
+        <select id="avaliacao" onchange="verificarAvaliacao()" required>
+            <option value="">Selecione</option>
+            <option value="bom">Bom</option>
+            <option value="interessante">Interessante</option>
+            <option value="ruim">Ruim</option>
+        </select>
+       
+        <!-- APARECE SOMENTE SE FOR "BOM" -->
+        <div id="perguntaAnuncio">
+            <label>Está tendo anúncio durante o uso?</label>
+            <select id="temAnuncio">
+                <option value="">Selecione</option>
+                <option value="sim">Sim, muitos anúncios</option>
+                <option value="nao">Não, navegação limpa</option>
+                <option value="asvezes">Às vezes</option>
+            </select>
+        </div>
+
+        <!-- APARECE SOMENTE SE FOR "INTERESSANTE" -->
+        <div id="perguntaUsoDiario">
+            <label>Você usaria todos os dias?</label>
+            <select id="usariaTodoDia">
+                <option value="">Selecione</option>
+                <option value="sim">Com certeza</option>
+                <option value="talvez">Talvez</option>
+                <option value="nao">Não</option>
+            </select>
+        </div>
+
+        <!-- APARECE SOMENTE SE FOR "RUIM" -->
+        <div id="porqueRuim">
+            <label>Por que você achou ruim?</label>
+            <textarea placeholder="Explique o motivo..."></textarea>
+
+            <label>Como posso melhorar esse aplicativo?</label>
+            <textarea rows="4" placeholder="Dê sugestões de melhoria..."></textarea>
+        </div>
+
+        <!-- QUESTÃO DE 5 ESTRELAS -->
+        <label>Dê uma nota em estrelas para o aplicativo:</label>
+        <div class="estrelas" id="containerEstrelas">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
+        </div>
+
+        <input type="hidden" id="notaEstrelas" name="notaEstrelas" required>
+
+        <button type="submit">Enviar</button>
+    </form>
+</main>
+
+<script>
+    function verificarAvaliacao() {
+        const valor = document.getElementById("avaliacao").value;
         
-        <form action="#" method="POST">
-            
-            <div>
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
-            </div>
+        const campoRuim = document.getElementById("porqueRuim");
+        const campoAnuncio = document.getElementById("perguntaAnuncio");
+        const campoUsoDiario = document.getElementById("perguntaUsoDiario");
+        
+        const selectAnuncio = document.getElementById("temAnuncio");
+        const selectUsoDiario = document.getElementById("usariaTodoDia");
 
-            <div>
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
-            </div>
+        // Condicional para "Ruim"
+        if (valor === "ruim") {
+            campoRuim.style.display = "block";
+        } else {
+            campoRuim.style.display = "none";
+        }
 
-            <div>
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Escreva sua opnião aqui..."></textarea>
-            </div>
+        // Condicional para "Bom"
+        if (valor === "bom") {
+            campoAnuncio.style.display = "block";
+            selectAnuncio.required = true;
+        } else {
+            campoAnuncio.style.display = "none";
+            selectAnuncio.required = false;
+            selectAnuncio.value = "";
+        }
 
-            <button type="submit">Enviar</button>
+        // Condicional para "Interessante" (Ativa pergunta de usar todo dia)
+        if (valor === "interessante") {
+            campoUsoDiario.style.display = "block";
+            selectUsoDiario.required = true;
+        } else {
+            campoUsoDiario.style.display = "none";
+            selectUsoDiario.required = false;
+            selectUsoDiario.value = "";
+        }
+    }
 
-        </form>
-    </main>
+    // Lógica para seleção das estrelas
+    const estrelas = document.querySelectorAll('#containerEstrelas span');
+    const inputNota = document.getElementById('notaEstrelas');
+
+    estrelas.forEach(estrela => {
+        estrela.addEventListener('click', function() {
+            const valorSelecionado = this.getAttribute('data-value');
+            inputNota.value = valorSelecionado;
+
+            estrelas.forEach(est => {
+                if (parseInt(est.getAttribute('data-value')) <= parseInt(valorSelecionado)) {
+                    est.classList.add('ativo');
+                } else {
+                    est.classList.remove('ativo');
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
