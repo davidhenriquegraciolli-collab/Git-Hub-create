@@ -6,7 +6,6 @@
     <title>MyVibe | Minhas Playlists</title>
     
     <style>
-        /* ==================== ESTILIZAÇÃO CSS ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -15,14 +14,13 @@
         }
 
         body {
-            background-color: #1a0b2e; /* Fundo roxo escuro profundo */
+            background-color: #1a0b2e;
             color: #ffffff;
             line-height: 1.6;
             min-height: 100vh;
             padding: 2rem 5%;
         }
 
-        /* CABEÇALHO DA PÁGINA */
         header {
             text-align: center;
             margin-bottom: 3rem;
@@ -31,16 +29,45 @@
         header h1 {
             font-size: 2.5rem;
             color: #e1bee7;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 10px rgba(191, 85, 236, 0.4);
         }
 
         header p {
             color: #b3a2c7;
-            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* GRID DE PLAYLISTS */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 2rem auto;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border-radius: 30px;
+            border: 2px solid #3d1d6d;
+            background-color: #0d0518;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #bf55ec;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, #4d1c8c, #bf55ec);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         .playlist-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -49,142 +76,114 @@
             margin: 0 auto;
         }
 
-        /* CARTÃO DA PLAYLIST */
         .playlist-card {
-            background-color: #0d0518; /* Roxo quase preto */
+            background-color: #0d0518;
             border: 2px solid #3d1d6d;
             border-radius: 16px;
             padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
         }
 
         .playlist-card:hover {
             transform: translateY(-5px);
-            border-color: #bf55ec; /* Roxo neon no hover */
-            box-shadow: 0 8px 30px rgba(191, 85, 236, 0.2);
+            border-color: #bf55ec;
         }
 
-        .card-info h3 {
-            font-size: 1.4rem;
-            color: #ffffff;
-            margin-bottom: 0.2rem;
-        }
-
-        .card-info span {
-            font-size: 0.9rem;
-            color: #b3a2c7;
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        /* ESPAÇO PARA O PLAYER DE ÁUDIO (IFRAME) */
         .embed-container {
             background-color: #130722;
             width: 100%;
-            height: 350px; /* Altura padrão para exibir lista de faixas */
+            height: 350px;
             border-radius: 8px;
             margin-bottom: 1.5rem;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px dashed #4d1c8c;
-            overflow: hidden;
         }
 
-        .placeholder-text {
-            color: #5c437a;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 1rem;
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
-        /* BOTÃO DE AÇÃO */
         .playlist-btn {
-            background: linear-gradient(135deg, #4d1c8c 0%, #bf55ec 100%);
-            color: #ffffff;
-            text-decoration: none;
+            display: block;
             text-align: center;
+            background: linear-gradient(135deg, #4d1c8c, #bf55ec);
+            color: white;
+            text-decoration: none;
             padding: 0.8rem;
             border-radius: 30px;
             font-weight: bold;
-            font-size: 1rem;
-            transition: background 0.2s, box-shadow 0.2s;
-            display: block;
-        }
-
-        .playlist-btn:hover {
-            box-shadow: 0 0 15px rgba(191, 85, 236, 0.6);
-        }
-
-        /* RODAPÉ */
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            color: #5c437a;
-            font-size: 0.9rem;
         }
     </style>
 </head>
+
 <body>
 
-    <!-- CABEÇALHO -->
-    <header>
-        <h1>🎵 Minhas Playlists</h1>
-        <p>Acesse e gerencie suas coleções musicais favoritas em um só lugar.</p>
-    </header>
+<header>
+    <h1>🎵 MyVibe</h1>
+    <p>Acesse e busque suas músicas favoritas</p>
+    
+    <form class="search-container" action="https://youtube.com" method="get" target="_blank">
+        <input type="text" name="search_query" class="search-input" placeholder="Buscar músicas ou artistas..." required>
+        <button type="submit" class="search-btn">Buscar</button>
+    </form>
+</header>
 
-    <!-- ÁREA PRINCIPAL -->
-    <main class="playlist-grid">
+<main class="playlist-grid">
 
-        <!-- PLAYLIST 1 -->
-        <div class="playlist-card">
-            <div class="card-info">
-                <h3>☕ Deep Focus</h3>
-                <span>Sua seleção para concentração total</span>
-                <div class="embed-container">
-                    <!-- Substitua o <p> abaixo pelo código iframe do Spotify/YouTube -->
-                    <p class="placeholder-text">Cole o código do player aqui</p>
-                </div>
-            </div>
-            <a href="#" target="_blank" class="playlist-btn">Abrir no App</a>
+    <!-- PLAYLIST 1 -->
+    <div class="playlist-card">
+        <h3>☕ Deep Focus</h3>
+        <span>Concentração total</span>
+
+        <div class="embed-container">
+            <iframe src="https://youtube.com" allowfullscreen></iframe>
         </div>
 
-        <!-- PLAYLIST 2 -->
-        <div class="playlist-card">
-            <div class="card-info">
-                <h3>⚡ Beast Mode</h3>
-                <span>Músicas pesadas para o treino</span>
-                <div class="embed-container">
-                    <!-- Substitua o <p> abaixo pelo código iframe do Spotify/YouTube -->
-                    <p class="placeholder-text">Cole o código do player aqui</p>
-                </div>
-            </div>
-            <a href="#" target="_blank" class="playlist-btn">Abrir no App</a>
+        <!-- Atualizado para buscar o termo no YouTube -->
+        <a href="https://youtube.com?search_query=Deep+Focus+Playlist" target="_blank" class="playlist-btn">
+            Procurar no YouTube
+        </a>
+    </div>
+
+    <!-- PLAYLIST 2 -->
+    <div class="playlist-card">
+        <h3>⚡ Beast Mode</h3>
+        <span>Treino pesado</span>
+
+        <div class="embed-container">
+            <iframe src="https://youtube.com" allowfullscreen></iframe>
         </div>
 
-        <!-- PLAYLIST 3 -->
-        <div class="playlist-card">
-            <div class="card-info">
-                <h3>🌙 Chill Vibes</h3>
-                <span>Para desacelerar e relaxar</span>
-                <div class="embed-container">
-                    <!-- Substitua o <p> abaixo pelo código iframe do Spotify/YouTube -->
-                    <p class="placeholder-text">Cole o código do player aqui</p>
-                </div>
-            </div>
-            <a href="#" target="_blank" class="playlist-btn">Abrir no App</a>
+        <!-- Atualizado para buscar o termo no YouTube -->
+        <a href="https://youtube.com?search_query=Beast+Mode+Workout+Playlist" target="_blank" class="playlist-btn">
+            Procurar no YouTube
+        </a>
+    </div>
+
+    <!-- PLAYLIST 3 -->
+    <div class="playlist-card">
+        <h3>🌙 Chill Vibes</h3>
+        <span>Relaxar</span>
+
+        <div class="embed-container">
+            <iframe src="https://youtube.com" allowfullscreen></iframe>
         </div>
 
-    </main>
+        <!-- Mantido o padrão de busca no YouTube -->
+        <a href="https://youtube.com?search_query=Chill+Vibes+Playlist" target="_blank" class="playlist-btn">
+            Procurar no YouTube
+        </a>
+    </div>
 
-    <!-- RODAPÉ -->
-    <footer>
-        <p>&copy; 2026 MyVibe. Todos os direitos reservados.</p>
-    </footer>
+</main>
+
+<footer style="text-align:center; margin-top:4rem; color:#5c437a;">
+    <p>&copy; 2026 MyVibe</p>
+</footer>
 
 </body>
 </html>
