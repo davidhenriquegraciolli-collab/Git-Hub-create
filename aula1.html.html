@@ -6,7 +6,6 @@
     <title>MyVibe Pro | Universo Musical</title>
     
     <style>
-        /* ==================== ESTILIZAÇÃO CSS ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -15,17 +14,16 @@
         }
 
         body {
-            background-color: #1a0b2e; /* Fundo roxo escuro */
+            background-color: #1a0b2e;
             color: #ffffff;
             display: flex;
             height: 100vh;
             overflow: hidden;
         }
 
-        /* BARRA LATERAL (MENU) */
         aside {
             width: 260px;
-            background-color: #0d0518; /* Roxo quase preto */
+            background-color: #0d0518;
             border-right: 1px solid #3d1d6d;
             padding: 2rem 1rem;
             display: flex;
@@ -37,8 +35,6 @@
             font-size: 1.6rem;
             font-weight: bold;
             color: #bf55ec;
-            text-shadow: 0 0 10px rgba(191, 85, 236, 0.4);
-            padding-left: 0.5rem;
         }
 
         aside nav {
@@ -47,297 +43,47 @@
             gap: 0.5rem;
         }
 
-        /* Estilo dos Botões Interativos */
         .menu-btn {
-            background: none;
-            border: none;
+            display: block;
+            text-decoration: none;
             color: #b3a2c7;
-            text-align: left;
             padding: 0.8rem 1rem;
-            font-size: 1rem;
             font-weight: 600;
-            cursor: pointer;
             border-radius: 8px;
-            width: 100%;
-            transition: all 0.2s ease;
+            transition: 0.2s;
         }
 
-        /* Efeito visual de botão selecionado ou com o mouse por cima */
-        .menu-btn:hover, .menu-btn.active {
-            color: #ffffff;
+        .menu-btn:hover {
             background-color: #261142;
+            color: white;
             border-left: 4px solid #bf55ec;
         }
 
-        /* ÁREA DAS PÁGINAS */
         main {
             flex: 1;
             padding: 2.5rem;
-            overflow-y: auto;
-        }
-
-        /* Esconde as páginas que não estão ativas */
-        .page {
-            display: none;
-        }
-
-        /* Mostra apenas a página ativa com animação */
-        .page.active {
-            display: block;
-            animation: surgir 0.3s ease;
-        }
-
-        @keyframes surgir {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: #e1bee7;
-        }
-
-        .subtitle {
-            color: #b3a2c7;
-            margin-bottom: 2rem;
-            font-size: 1rem;
-        }
-
-        /* GRIDS E LAYOUT DOS CARDS */
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background-color: #261142;
-            border: 1px solid #3d1d6d;
-            border-radius: 10px;
-            padding: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            border-color: #bf55ec;
-        }
-
-        .embed-space {
-            background-color: #130722;
-            width: 100%;
-            height: 250px;
-            border-radius: 6px;
-            margin-top: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed #4d1c8c;
-            color: #5c437a;
-            font-size: 0.9rem;
-        }
-
-        /* FORMULÁRIO DE BUSCA YOUTUBE */
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto 3rem auto; /* Ajustado a margem superior para alinhar melhor */
-            text-align: center;
-            background-color: #261142;
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            border: 1px solid #3d1d6d;
-        }
-
-        .search-form {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 0.8rem 1.2rem;
-            border-radius: 30px;
-            border: 2px solid #3d1d6d;
-            background-color: #130722;
-            color: #ffffff;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .search-input:focus {
-            border-color: #bf55ec;
-        }
-
-        .search-btn {
-            background-color: #bf55ec;
-            color: white;
-            border: none;
-            padding: 0.8rem 1.8rem;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* SEÇÃO DE ARTISTAS */
-        .artist-circle {
-            width: 110px;
-            height: 110px;
-            background-color: #130722;
-            border: 2px solid #3d1d6d;
-            border-radius: 50%;
-            margin: 0 auto 1rem auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-        }
-
-        .artist-card {
-            text-align: center;
-        }
-
-        .artist-card span {
-            color: #bf55ec;
-            font-size: 0.85rem;
-        }
-
-        /* SEÇÃO DE EXPLORAÇÃO */
-        .genre-badge {
-            background: linear-gradient(135deg, #4d1c8c 0%, #bf55ec 100%);
-            padding: 2.5rem 1rem;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        /* ==================== ESTILO DO NOVO FORMULÁRIO ==================== */
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #261142;
-            border: 1px solid #3d1d6d;
-            border-radius: 12px;
-            padding: 2.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #e1bee7;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            background-color: #130722;
-            border: 2px solid #3d1d6d;
-            border-radius: 8px;
-            color: #ffffff;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .form-control:focus {
-            border-color: #bf55ec;
-        }
-
-        select.form-control {
-            cursor: pointer;
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            background-color: #bf55ec;
-            color: #ffffff;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.2s;
-        }
-
-        .submit-btn:hover {
-            background-color: #a03cc7;
         }
     </style>
 </head>
-<body>
 
-    <!-- MENU LATERAL -->
-    <aside>
-        <div class="logo">🎧 MyVibe Pro</div>
-        <nav>
-            <button class="menu-btn active" onclick="abrirPagina('playlists')">🎵 Minhas Playlists</button>
-            <button class="menu-btn" onclick="abrirPagina('explorar')">✨ Explorar Músicas</button>
-            <button class="menu-btn" onclick="abrirPagina('artistas')">👨‍🎤 Coleção de Artistas</button>
-            <button class="menu-btn" onclick="abrirPagina('contato')">📩 Enviar Feedback</button>
-        </nav>
+    <body>
+
+        <aside>
+            <div class="logo">🎧 MyVibe Pro</div>
+
+            <nav>
+                <a href="aula1.html.html" class="menu-btn">🏠 Início</a>
+                <a href="aula2.html.html" class="menu-btn">🔍 usic Finder</a>
+                <a href="aula3.html.html" class="menu-btn">🎵 Minhas Playlists</a>
+                <a href="aula4.html.html" class="menu-btn">👨‍🎤 Coleção de Artistas</a>
+                <a href="aulafinal.html.html" class="menu-btn">📩 Enviar Feedback</a>
+            </nav>
     </aside>
 
-    <!-- CONTEÚDO DO SITE -->
-    <main>
+            <main>
+                <h2>Bem-vindo ao MyVibe Pro</h2>
+                <p>Agora seu menu troca de página de verdade.</p>
+            </main>
 
-        <!-- PÁGINA: PLAYLISTS + PESQUISA (INICIAL) -->
-        <div id="playlists" class="page active">
-            <!-- Barra de Busca do YouTube Integrada Aqui -->
-            <div class="search-container">
-                <h2>Buscar no YouTube</h2>
-                <p class="subtitle">Encontre seus clipes e músicas favoritas diretamente da plataforma.</p>
-                <form class="search-form" onsubmit="event.preventDefault(); alert('Buscando música...');">
-                    <input type="text" class="search-input" placeholder="Digite o nome da música ou artista...">
-                    <button type="submit" class="search-btn">Buscar</button>
-                </form>
-            </div>
-
-            <h2>Minhas Playlists</h2>
-            <p class="subtitle">Seus hubs de áudio e compilações favoritas salvos aqui.</p>
-            
-            <div class="grid-layout">
-                <div class="card">
-                    <h3>Suas musicas #1</h3>
-                    <div class="embed-space">[ Espaço para Player Musical ]</div>
-                </div>
-                <div class="card">
-                    <h3>Favoritas do Mês</h3>
-                    <div class="embed-space">[ Espaço para Player Musical ]</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PÁGINA: EXPLORAR -->
-        <div id="explorar" class="page">
-            <h2>Explorar Músicas</h2>
-            <p class="subtitle">Navegue por gêneros musicais e encontre novas vibes.</p>
-            <div class="grid-layout">
-                <div class="genre-badge">🎸 Rock</div>
-                <div class="genre-badge">🎹 Pop</div>
-                <div class="genre-badge">🎧 Eletrônica</div>
-                <div class="genre-badge">🎷 Jazz</div>
-            </div>
-        </div>
-
-        <!-- PÁGINA: ARTISTAS -->
-        <div id="artistas" class="page">
-            <h2>Coleção de Artistas</h2>
-            <p class="subtitle">Seus cantores e bandas mais escutados.</p>
-            <div class="grid-layout">
-                <div class="card artist-card">
-                    <div class="artist-circle">👨‍🎤</div>
+    </body>
+</html>
