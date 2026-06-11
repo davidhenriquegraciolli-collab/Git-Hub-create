@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MusicFinder | Pesquisa Global de Músicas</title>
     
-    <!-- Ícones modernos para o menu -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    
     <style>
         * {
             margin: 0;
@@ -34,7 +31,7 @@
             display: flex;
             flex-direction: column;
             gap: 2.5rem;
-            flex-shrink: 0; /* Impede o menu de espremer */
+            flex-shrink: 0;
         }
 
         aside .logo {
@@ -66,12 +63,6 @@
             border-left: 4px solid transparent;
         }
 
-        .menu-btn i {
-            font-size: 1.1rem;
-            width: 20px;
-            text-align: center;
-        }
-
         .menu-btn:hover {
             background-color: #261142;
             color: #ffffff;
@@ -89,7 +80,7 @@
         /* Área de Conteúdo Direita */
         main {
             flex: 1;
-            padding: 1.5rem;
+            padding: 2.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -202,73 +193,123 @@
         }
     </style>
 </head>
+<body>
+ <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
 
-        <body>
+        body {
+            background-color: #1a0b2e;
+            color: #ffffff;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-        <!-- MENU LATERAL INTEGRADO -->
-          <main>
-             <aside>
-                <div class="logo">🎧 MyVibe Pro</div>
+        aside {
+            width: 260px;
+            background-color: #0d0518;
+            border-right: 1px solid #3d1d6d;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
 
-                  <nav>
-                    <a href="aula1.html.html" class="menu-btn">🏠 Início</a><br>
-                    <a href="aula2.html.html" class="menu-btn">🔍 Mundo Musical</a></br>
-                    <a href="aula3.html.html" class="menu-btn">🎵 Minhas Playlists</a><br>
-                    <a href="aula4.html.html" class="menu-btn">👨‍🎤 Coleção de Artistas</a></br>
-                    <a href="aulafinal.html.html" class="menu-btn">📩 Enviar Feedback</a><br>
-                  </nav>
-            </asiSde>
-         </main>
-        </br>
+        aside .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #bf55ec;
+        }
 
-<!-- CONTEÚDO PRINCIPAL (MusicFinder) -->
-<main>
-    <div class="search-wrapper">
-        <div class="logo-area">🔍 MusicFinder</div>
-        <p class="subtitle">Digite o nome da música, trecho ou artista.</p>
+        aside nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
 
-        <form action="https://youtube.com" method="GET" target="_blank" class="search-form">
-            <input type="text" id="musicQuery" name="search_query" class="search-input" placeholder="Ex: música..." required>
-            <button type="submit" class="main-search-btn">Pesquisar</button>
-        </form>
+        .menu-btn {
+            display: block;
+            text-decoration: none;
+            color: #b3a2c7;
+            padding: 0.8rem 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
 
-        <div class="divider">
-            <span>Ou busque por</span>
+        .menu-btn:hover {
+            background-color: #261142;
+            color: white;
+            border-left: 4px solid #bf55ec;
+        }
+
+        main {
+            flex: 1;
+            padding: 2.5rem;
+        }
+    </style>
+    <!-- MENU LATERAL -->
+    <aside>
+        <div class="logo">🎧 MyVibe Pro</div>
+        <nav>
+            <a href="aula1.html" class="menu-btn">🏠 Início</a>
+            <a href="aula2.html" class="menu-btn active">🔍 Music Finder</a>
+            <a href="aula3.html" class="menu-btn">🎵 Minhas Playlists</a>
+            <a href="aula4.html" class="menu-btn">👨‍🎤 Artistas</a>
+            <a href="aulafinal.html" class="menu-btn">📩 Feedback</a>
+        </nav>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL (MusicFinder) -->
+    <main>
+        <div class="search-wrapper">
+            <div class="logo-area">🔍 MusicFinder</div>
+            <p class="subtitle">Digite o nome da música, trecho ou artista.</p>
+
+            <form action="https://youtube.com" method="GET" target="_blank" class="search-form">
+                <input type="text" id="musicQuery" name="search_query" class="search-input" placeholder="Ex: música..." required>
+                <button type="submit" class="main-search-btn">Pesquisar</button>
+            </form>
+
+            <div class="divider">
+                <span>Ou busque por</span>
+            </div>
+
+            <div class="shortcut-grid">
+                <a href="javascript:buscarEspecial('letra')" class="shortcut-btn">📝 Letra</a>
+                <a href="javascript:buscarEspecial('traducao')" class="shortcut-btn">🌐 Tradução</a>
+                <a href="javascript:buscarEspecial('cifra')" class="shortcut-btn">🎸 Cifra</a>
+            </div>
         </div>
+    </main>
 
-        <div class="shortcut-grid">
-            <a href="javascript:buscarEspecial('letra')" class="shortcut-btn">📝 Letra</a>
-            <a href="javascript:buscarEspecial('traducao')" class="shortcut-btn">🌐 Tradução</a>
-            <a href="javascript:buscarEspecial('cifra')" class="shortcut-btn">🎸 Cifra</a>
-        </div>
-    </div>
-</main>
+    <!-- SCRIPTS -->
+    <script>
+        function buscarEspecial(tipo) {
+            var termo = document.getElementById('musicQuery').value.trim();
 
-<!-- SCRIPT MANTIDO E FUNCIONAL -->
-<script>
-function buscarEspecial(tipo) {
-    var termo = document.getElementById('musicQuery').value.trim();
+            if (!termo) {
+                alert("Digite uma música primeiro!");
+                return;
+            }
 
-    if (!termo) {
-        alert("Digite uma música primeiro!");
-        return;
-    }
+            var url = "";
 
-    var url = "";
+            if (tipo === 'letra') {
+                url = "https://www.google.com/search?q=" + encodeURIComponent(termo + " letra");
+            } else if (tipo === 'traducao') {
+                url = "https://www.google.com/search?q=" + encodeURIComponent(termo + " traducao");
+            } else if (tipo === 'cifra') {
+                url = "https://www.google.com/search?q=" + encodeURIComponent(termo + " cifra");
+            }
 
-    if (tipo === 'letra') {
-        url = "https://www.google.com/search?q=" + encodeURIComponent(termo + " letra");
-    } else if (tipo === 'traducao') {
-        url = "https://www.google.com/search?q=" + encodeURIComponent(termo + " traducao");
-    } else if (tipo === 'cifra') {
-        url = "https://www.google.com/search?q=" + encodeURIComponent(termo + " cifra");
-    }
-
-    window.open(url, '_blank');
-}
-
-
-</script>
-
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
